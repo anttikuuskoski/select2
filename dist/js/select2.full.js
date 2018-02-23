@@ -4279,7 +4279,8 @@ S2.define('select2/dropdown/attachBody',[
 
   AttachBody.prototype.position = function (decorated, $dropdown, $container) {
     // Clone all of the container classes
-    $dropdown.attr('class', $container.attr('class'));
+    $dropdown.attr('class', $container.attr('data-copy-class'));
+    //$dropdown.attr('class', $container.attr('class'));
 
     $dropdown.removeClass('select2');
     $dropdown.addClass('select2-container--open');
@@ -5752,6 +5753,11 @@ S2.define('select2/core',[
 
     this.$container.addClass('select2-container--' + this.options.get('theme'));
 
+    // Store original classes for future copying 
+    this.$container.attr('data-copy-class', $container.attr('class'));
+    // Then add possible extra classes (for original only)
+    this.$container.addClass(this.options.get('containerClass'));
+      
     Utils.StoreData($container[0], 'element', this.$element);
 
     return $container;
