@@ -609,6 +609,11 @@ define([
 
     this.$container.addClass('select2-container--' + this.options.get('theme'));
 
+    // Store original classes for the copy created by dropdown 
+    this.$container.attr('data-copy-class', $container.attr('class'));
+    // Then add possible extra classes (used in the original only)
+    this.$container.addClass(this.options.get('containerClass'));
+
     Utils.StoreData($container[0], 'element', this.$element);
 
     return $container;
