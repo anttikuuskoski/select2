@@ -2,12 +2,10 @@
   box-sizing: border-box;
 
   display: inline-block;
-  margin: 0;
   position: relative;
   vertical-align: middle;
 
   @import "single";
-  @import "multiple";
 }
 
 @import "dropdown";
@@ -47,4 +45,3 @@
 }
 
 @import "theme/default/layout";
-@import "theme/classic/layout";
